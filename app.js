@@ -8,13 +8,15 @@ const images = [
   "https://picsum.photos/500/500?random=4",
 ];
 let count = 0;
-let time = 2000;
+let time = 4500;
 const setImages = () => {
   document.slide.src = images[count];
 };
+
 const slideImages = () => {
+  count < images.length - 1 ? count++ : (count = 0);
   setImages();
-  setInterval(setImages, time);
+  setTimeout(slideImages, time);
 };
 window.addEventListener("DOMContentLoaded", slideImages); //will load images
 
@@ -25,7 +27,7 @@ nextBTN.addEventListener("click", () => {
 });
 
 prevBTN.addEventListener("click", () => {
-  count--;
+  count > 0 ? count-- : (count = images.length - 1);
   setImages();
   console.log("prev button clicked", count);
 });
