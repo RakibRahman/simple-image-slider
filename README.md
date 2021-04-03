@@ -1,2 +1,3 @@
 # simple-image-slider
-![ss](ss.png)
+
+![ss](ss.gif)
